@@ -1,4 +1,12 @@
 <div *ngIf="myDrink">
     <p>questa sera bevo...</p>
-    <div >{{myDrink.strDrink}}</div>
+    <div>{{myDrink.strDrink}}</div>
+    <div>
+        <p>Ingredienti</p>
+        <ul>
+            <li *ngFor="let drink of myDrink.ingredients" >
+                {{drink}}
+            </li>
+        </ul>
+    </div>
 </div>

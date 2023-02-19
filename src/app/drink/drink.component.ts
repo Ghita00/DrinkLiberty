@@ -34,8 +34,7 @@ export class DrinkComponent implements OnInit {
   }
 
   mappingFullDrinkToDrinkMapped(fullDrink:DrinkAllInformation) : DrinkMapped {
-    console.log()
-    return {
+    let drinkMap =  {
       idDrink: fullDrink.idDrink,
       strAlcoholic: fullDrink.strAlcoholic,
       strCategory: fullDrink.strCategory,
@@ -47,26 +46,58 @@ export class DrinkComponent implements OnInit {
       strIBA: fullDrink.strIBA,
       strImageAttribution: fullDrink.strImageAttribution,
       strImageSource: fullDrink.strImageSource,
-      ingredients : [
-        fullDrink.strIngredient1, 
-        fullDrink.strIngredient2,
-        fullDrink.strIngredient3,
-        fullDrink.strIngredient4,
-        fullDrink.strIngredient5,
-        fullDrink.strIngredient6,
-        fullDrink.strIngredient7,
-        fullDrink.strIngredient8,
-        fullDrink.strIngredient9,
-        fullDrink.strIngredient10,
-        fullDrink.strIngredient11,
-        fullDrink.strIngredient12,
-        fullDrink.strIngredient13,
-        fullDrink.strIngredient14,
-        fullDrink.strIngredient15,
-      ],
+      ingredients : new Array<string>(),
       strInstructions: fullDrink.strInstructions,
       strTags: fullDrink.strTags
     }
+
+    if(fullDrink.strIngredient1){
+      drinkMap.ingredients.push(fullDrink.strIngredient1 + " " + fullDrink.strMeasure1)
+    }
+    if(fullDrink.strIngredient2){
+      drinkMap.ingredients.push(fullDrink.strIngredient2 + " " + fullDrink.strMeasure2)
+    }
+    if(fullDrink.strIngredient3){
+      drinkMap.ingredients.push(fullDrink.strIngredient3 + " " + fullDrink.strMeasure3)
+    }
+    if(fullDrink.strIngredient4){
+      drinkMap.ingredients.push(fullDrink.strIngredient4 + " " + fullDrink.strMeasure4)
+    }
+    if(fullDrink.strIngredient5){
+      drinkMap.ingredients.push(fullDrink.strIngredient5 + " " + fullDrink.strMeasure5)
+    }
+    if(fullDrink.strIngredient6){
+      drinkMap.ingredients.push(fullDrink.strIngredient6 + " " + fullDrink.strMeasure6)
+    }
+    if(fullDrink.strIngredient7){
+      drinkMap.ingredients.push(fullDrink.strIngredient7 + " " + fullDrink.strMeasure7)
+    }
+    if(fullDrink.strIngredient8){
+      drinkMap.ingredients.push(fullDrink.strIngredient8 + " " + fullDrink.strMeasure8)
+    }
+    if(fullDrink.strIngredient9){
+      drinkMap.ingredients.push(fullDrink.strIngredient9 + " " + fullDrink.strMeasure9)
+    }
+    if(fullDrink.strIngredient10){
+      drinkMap.ingredients.push(fullDrink.strIngredient10 + " " + fullDrink.strMeasure10)
+    }
+    if(fullDrink.strIngredient11){
+      drinkMap.ingredients.push(fullDrink.strIngredient11 + " " + fullDrink.strMeasure11)
+    }
+    if(fullDrink.strIngredient12){
+      drinkMap.ingredients.push(fullDrink.strIngredient12 + " " + fullDrink.strMeasure12)
+    }
+    if(fullDrink.strIngredient13){
+      drinkMap.ingredients.push(fullDrink.strIngredient13 + " " + fullDrink.strMeasure13)
+    }
+    if(fullDrink.strIngredient14){
+      drinkMap.ingredients.push(fullDrink.strIngredient14 + " " + fullDrink.strMeasure14)
+    }
+    if(fullDrink.strIngredient15){
+      drinkMap.ingredients.push(fullDrink.strIngredient15 + " " + fullDrink.strMeasure15)
+    }
+
+    return drinkMap;
   }
 }
 
@@ -82,7 +113,7 @@ export class DrinkMapped{
   "strIBA": string;
   "strImageAttribution": string;
   "strImageSource": string;
-  "ingredients": string[];
+  "ingredients": Array<string>;
   "strInstructions": string;
   "strTags": string;
 }
