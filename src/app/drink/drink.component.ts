@@ -96,8 +96,12 @@ export class DrinkComponent implements OnInit {
     if(fullDrink.strIngredient15){
       drinkMap.ingredients.push(fullDrink.strIngredient15 + " " + fullDrink.strMeasure15)
     }
-
+    console.log(fullDrink.strImageSource)
     return drinkMap;
+  }
+
+  newCocktailForPage(){
+    window.location.reload();
   }
 }
 

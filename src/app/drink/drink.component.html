@@ -1,6 +1,8 @@
 <div *ngIf="myDrink">
     <p>questa sera bevo...</p>
     <div>{{myDrink.strDrink}}</div>
+    {{myDrink.strImageAttribution}}
+    
     <div>
         <p>Ingredienti</p>
         <ul>
@@ -9,4 +11,8 @@
             </li>
         </ul>
     </div>
+    <p>
+        {{myDrink.strInstructions}}
+    </p>
+    <button type="button" class="btn btn-light" (click)="newCocktailForPage()">Carica altro drink</button>
 </div>

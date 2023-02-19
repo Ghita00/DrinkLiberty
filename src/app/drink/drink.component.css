@@ -1,0 +1,8 @@
+.btn{
+    border: solid;
+    border-color: orange;
+}
+
+.btn :hover{
+    background-color: white;
+}
