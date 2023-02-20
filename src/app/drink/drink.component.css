@@ -4,13 +4,7 @@
 
 .btn-drink{
     margin-top: 10px;
-}
-
-.center{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
+    margin-bottom: 10px;
 }
 
 .listIngredient{
