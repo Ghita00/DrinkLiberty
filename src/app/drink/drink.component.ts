@@ -12,24 +12,30 @@ import { DrinkAllInformation, Drinks } from '../drink-module/drinkClasses.module
 
 export class DrinkComponent implements OnInit {
   URL : string = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-  myDrinkPromise : Promise<Drinks>;
-  myDrink? : DrinkMapped;
+  myDrinkPromises : Array<Promise<Drinks>>;
+  myDrinks? : Array<DrinkMapped>;
 
   constructor() {
-    this.myDrinkPromise = fetch(this.URL)
-    .then(res => {
-      return res.json();
-    })
-    .catch(err => {
-      console.log("err: ", err);
-      return null;
-    })
+    this.myDrinkPromises = new Array<Promise<Drinks>>();
+    this.myDrinks = new Array<DrinkMapped>();
+
+    for(let i = 0; i < 3; i++){
+      this.myDrinkPromises.push(fetch(this.URL)
+      .then(res => {
+        return res.json();
+      })
+      .catch(err => {
+        console.log("err: ", err);
+        return null;
+      }));
+    }
+    
   }
 
   ngOnInit(): void {
-    Promise.resolve(this.myDrinkPromise)
-    .then(res => {
-      this.myDrink = this.mappingFullDrinkToDrinkMapped(res.drinks[0]);
+    Promise.all(this.myDrinkPromises)
+    .then(multipleRes => {
+      this.myDrinks = multipleRes.map(res => this.mappingFullDrinkToDrinkMapped(res.drinks[0]));
     })
   }
 
@@ -96,7 +102,7 @@ export class DrinkComponent implements OnInit {
     if(fullDrink.strIngredient15){
       drinkMap.ingredients.push(fullDrink.strIngredient15 + " " + fullDrink.strMeasure15)
     }
-    console.log(fullDrink.strImageSource)
+    console.log(drinkMap.strTags)
     return drinkMap;
   }
 

@@ -1,18 +1,28 @@
-<div *ngIf="myDrink">
-    <p>questa sera bevo...</p>
-    <div>{{myDrink.strDrink}}</div>
-    {{myDrink.strImageAttribution}}
-    
-    <div>
-        <p>Ingredienti</p>
-        <ul>
-            <li *ngFor="let drink of myDrink.ingredients" >
-                {{drink}}
-            </li>
-        </ul>
+<h2 class="center" id="randomDrink">Random Drink</h2>
+<p class="center">questa sera bevo...</p>
+<div class="container">
+    <div class="row"> 
+        <div class="col" *ngFor="let myDrink of myDrinks">
+            <div *ngIf="myDrink" class="bordo">
+                <div class="card" style="width: 22rem;">
+                    <img src="../../assets/drink.jpg" class="card-img-top" alt="reference-img">
+                    <div class="card-body">
+                    <h5 class="card-title">{{myDrink.strDrink}}</h5>
+                    <p class="card-text">{{myDrink.strInstructions}}</p>
+                    <p class="card-text">Ingredienti e proporzioni:</p>
+                    <div class="card-text">
+                        <ul class="listIngredient">
+                            <li *ngFor="let drink of myDrink.ingredients" >
+                                {{drink}}
+                            </li>
+                        </ul>
+                    </div>
+                    <a *ngIf="myDrink.strImageSource" href="{{myDrink.strImageSource}}" class="btn btn-primary center">Visualizza il drink</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>
-        {{myDrink.strInstructions}}
-    </p>
-    <button type="button" class="btn btn-light" (click)="newCocktailForPage()">Carica altro drink</button>
+    <button type="button" class="btn btn-drink center" (click)="newCocktailForPage()">Carica altro drink</button>
 </div>
+

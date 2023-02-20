@@ -1,8 +1,19 @@
-.btn{
-    border: solid;
-    border-color: orange;
+.bordo{
+    width: min-content;
 }
 
-.btn :hover{
-    background-color: white;
+.btn-drink{
+    margin-top: 10px;
+}
+
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.listIngredient{
+    list-style: none;
+    padding: 0px;
 }
