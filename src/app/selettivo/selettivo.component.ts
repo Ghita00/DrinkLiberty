@@ -24,7 +24,8 @@ export class SelettivoComponent implements OnInit {
   ngOnInit(): void {
     Promise.resolve(this.promiseAllDrink)
     .then(allDrinkRespo => {
-      console.log(allDrinkRespo)
+      this.allDrink = allDrinkRespo
+      console.log(this.allDrink)
     })
   }
 

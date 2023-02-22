@@ -1,3 +1,17 @@
 <h2 class="center" id="randomDrink">Tutti i nostri Drink</h2>
 <p class="center">questa sera bevo precisamente...</p>
-
+<div class="container">
+    <div class="row"> 
+        <div class="col" *ngFor="let myDrink of allDrink.drinks">
+            <div *ngIf="myDrink" class="bordo">
+                <div class="card" style="width: 22rem;">
+                    <img src="{{myDrink.strDrinkThumb}}" class="card-img-top" alt="reference-img">
+                    <div class="card-body">
+                    <h5 class="card-title">{{myDrink.strDrink}}</h5>
+                    <a *ngIf="myDrink.strImageSource" href="{{myDrink.strImageSource}}" class="btn btn-primary center">Visualizza il drink</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
